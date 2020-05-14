@@ -1,22 +1,26 @@
 package iterate
 
-import("fmt")
+import(
+  "net/http"
+  "io"
+  "strconv"
+)
 
-func Ciclo(target int8){
+func Ciclo(response http.ResponseWriter,target int8){
   var i int8 = 1
-  fmt.Println("ciclo for tipo while")
+  io.WriteString(response,"ciclo for tipo while\n")
   for  i < target {
-    fmt.Println(i)
+    io.WriteString(response,strconv.Itoa(int(i)))
     i++
   }
-fmt.Println("ciclo for clasico")
+io.WriteString(response,"ciclo for clasico\n")
   for i = 0 ; i < target ; i++ {
-    fmt.Println(i)
+    io.WriteString(response,strconv.Itoa(int(i)))
   }
-  fmt.Println("do while")
+  io.WriteString(response,"do while\n")
   i = 0;
   for {
-    fmt.Println("Test")
+    io.WriteString(response,"Test\n")
     i++
     if i > 2 {
       break

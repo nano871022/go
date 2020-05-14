@@ -10,14 +10,15 @@ var (
   Error2 = errors.New("Mensaje 2")
 )
 
-func TestErrors2(){
+func TestErrors2() (texto string) {
   test := Testing {Nombre:"Alejandro"}
   test2 := Testing {Errores: Error1}
 
   if(test2.Errores != nil){
-    fmt.Println(test2.Errores)
+    texto = texto + fmt.Sprintf("%v",test2.Errores)
   }
-  fmt.Println(test.Nombre)
+  texto = texto + test.Nombre
+  return 
 }
 
 func TestErrors(val int8)(err error){

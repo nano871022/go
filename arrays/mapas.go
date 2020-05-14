@@ -2,8 +2,9 @@ package arrays
 
 import ("fmt")
 
-func Mapas(){
-  fmt.Println("mapas")
+func Mapas()string{
+  var valor string = ""
+  valor = valor + fmt.Sprintf("mapas")
   m := make(map[string]string)
   m2 := make(map[string]string,7)
 
@@ -22,15 +23,16 @@ func Mapas(){
 
    _, esta := weekday[4]
    if(!esta){
-     fmt.Println("No esta el dia")
+     valor = valor + fmt.Sprintf("No esta el dia")
    }
 
-  fmt.Println(m)
-  fmt.Println(m2)
-  fmt.Println(m2["1"])
-  fmt.Println(weekday[1])
+  valor = valor + fmt.Sprintf("%v",m)
+  valor = valor + fmt.Sprintf("%v",m2)
+  valor = valor + fmt.Sprintf("%v",m2["1"])
+  valor = valor + fmt.Sprintf("%v",weekday[1])
 
   for numero,dia := range weekday{
-    fmt.Printf("El día %s tiene como numero el %d \n",dia,numero)
+    valor = valor + fmt.Sprintf("El día %s tiene como numero el %d \n",dia,numero)
   }
+  return valor
 }

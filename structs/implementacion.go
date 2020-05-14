@@ -1,8 +1,12 @@
 package structs
 
-import ("fmt")
+import (
+  "fmt"
+  "strconv"
+)
 
-func Structur2(){
+func Structur2()string{
+  var texto string = ""
   alejandro := Estudiante{
     Persona{
       Nombre: "Alejandro",
@@ -20,14 +24,15 @@ func Structur2(){
     },
     10,
   }
-  fmt.Println(alejandro)
-  fmt.Println(alejandro.Nombre)
-  fmt.Println(alejandro.Edad)
-  fmt.Println(alejandro.Semestre)
-  fmt.Println(fisica)
-  fmt.Println(fisica.Nombre)
-  fmt.Println(fisica.Edad)
-  fmt.Println(fisica.Semestre)
+  texto = texto + fmt.Sprintf("%v",alejandro)
+  texto = texto + alejandro.Nombre
+  texto = texto + strconv.Itoa(alejandro.Edad)
+  texto = texto + strconv.Itoa(int(alejandro.Semestre))
+  texto = texto + fmt.Sprintf("%v",fisica)
+  texto = texto + fisica.Nombre
+  texto = texto + strconv.Itoa(fisica.Edad)
+  texto = texto + strconv.Itoa(int(fisica.Semestre))
+  return texto
 }
 
 func diferenciaEdad(persona1,persona2 Persona)(mayor string,diff int){
@@ -41,7 +46,7 @@ func diferenciaEdad(persona1,persona2 Persona)(mayor string,diff int){
   return
 }
 
-func Structuras(){
+func Structuras()(texto string){
   var persona Persona
   persona.Nombre = "Alejandro"
   persona.Edad = 32
@@ -52,8 +57,9 @@ func Structuras(){
 
   mayor,diferencia := diferenciaEdad(persona2,persona3)
 
-  fmt.Println(persona)
-  fmt.Println(persona2)
-  fmt.Println(persona3)
-  fmt.Printf("El mayor es %s y la diferencia de edad es %d ",mayor,diferencia)
+  texto = texto + fmt.Sprintln("%v",persona)
+  texto = texto + fmt.Sprintln("%v",persona2)
+  texto = texto + fmt.Sprintln("%v",persona3)
+  texto = texto + fmt.Sprintf("El mayor es %s y la diferencia de edad es %d ",mayor,diferencia)
+  return
 }

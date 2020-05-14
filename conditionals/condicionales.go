@@ -1,14 +1,14 @@
 package conditionals
 
-import("fmt")
 
-func CondicionalSi(){
-  a:=3
+
+func CondicionalSi(a int) string{
+
   if a = a + 2 ; a > 6 {
-    fmt.Println ("algo")
+    return "algo"
   }else if a < 6 {
-    fmt.Println ("else if")
+    return "else if"
   }else{
-    fmt.Println ("else")
+    return "else"
   }
 }
